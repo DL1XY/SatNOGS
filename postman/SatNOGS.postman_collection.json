@@ -1,0 +1,1732 @@
+{
+	"info": {
+		"_postman_id": "3a0aaaba-5ed5-4d1c-8f7c-c26c36ca1627",
+		"name": "SatNOGS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DB v1.1",
+			"item": [
+				{
+					"name": "artifacts",
+					"item": [
+						{
+							"name": "artifacts_list",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"accept-encoding": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}/api/artifacts/",
+									"host": [
+										"{{satnogs_db_api_prod}}"
+									],
+									"path": [
+										"api",
+										"artifacts",
+										""
+									],
+									"query": [
+										{
+											"key": "network_obs_id",
+											"value": null,
+											"description": "Given a SatNOGS Network observation ID, this will return any artifacts files associated with the observation.",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "A page number within the paginated result set.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "artifacts_retrieve",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"accept-encoding": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}/api/artifacts/:id",
+									"host": [
+										"{{satnogs_db_api_prod}}"
+									],
+									"path": [
+										"api",
+										"artifacts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "artifacts_create",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"accept-encoding": true,
+									"user-agent": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {}
+								},
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}/api/artifacts/",
+									"host": [
+										"{{satnogs_db_api_prod}}"
+									],
+									"path": [
+										"api",
+										"artifacts",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "modes",
+					"item": [
+						{
+							"name": "modes_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}/api/modes?format=json",
+									"host": [
+										"{{satnogs_db_api_prod}}"
+									],
+									"path": [
+										"api",
+										"modes"
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": "json",
+											"description": "Available values : json, json-ld"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modes_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}/api/modes/:id",
+									"host": [
+										"{{satnogs_db_api_prod}}"
+									],
+									"path": [
+										"api",
+										"modes",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "satellites",
+					"item": [
+						{
+							"name": "satellites_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/satellites/?format=json&norad_cat_id=25544",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"satellites",
+										""
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": "json",
+											"description": "Available values : json, json-ld"
+										},
+										{
+											"key": "in_orbit",
+											"value": null,
+											"description": "Filter by satellites currently in orbit (True) or those that have decayed (False)",
+											"disabled": true
+										},
+										{
+											"key": "norad_cat_id",
+											"value": "25544",
+											"description": "Select a satellite by its NORAD-assigned identifier"
+										},
+										{
+											"key": "sat_id",
+											"value": "XSKZ-5603-1870-9019-3066",
+											"description": "Satellite ID",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": null,
+											"description": "Filter by satellite status: alive dead future re-entered",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "satellites_create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/satellites/?format",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"satellites",
+										""
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": null,
+											"description": "Available values : json, json-ld"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "satellites_create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{satnogs_db_api_prod}}​/api/satellites/?format=json",
+											"host": [
+												"{{satnogs_db_api_prod}}​"
+											],
+											"path": [
+												"api",
+												"satellites",
+												""
+											],
+											"query": [
+												{
+													"key": "format",
+													"value": "json",
+													"description": "Available values : json, json-ld"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": "{\r\n  \"norad_cat_id\": 25544,\r\n  \"name\": \"ISS\",\r\n  \"names\": \"ZARYA\",\r\n  \"image\": \"https://db-satnogs.freetls.fastly.net/media/satellites/ISS.jpg\",\r\n  \"status\": \"alive\",\r\n  \"decayed\": null,\r\n  \"launched\": \"1998-11-20T00:00:00Z\",\r\n  \"deployed\": \"1998-11-20T00:00:00Z\",\r\n  \"website\": \"https://www.nasa.gov/mission_pages/station/main/index.html\",\r\n  \"operator\": \"None\",\r\n  \"countries\": \"RU,US\",\r\n  \"telemetries\": [\r\n    {\r\n      \"decoder\": \"iss\"\r\n    }\r\n  ]\r\n}"
+								}
+							]
+						},
+						{
+							"name": "satellites_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/satellites/?format=json&sat_id=XSKZ-5603-1870-9019-3066",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"satellites",
+										""
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": "json",
+											"description": "Available values : json, json-ld"
+										},
+										{
+											"key": "sat_id",
+											"value": "XSKZ-5603-1870-9019-3066",
+											"description": "Satellite ID"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "telemetry",
+					"item": [
+						{
+							"name": "telemetry_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/telemetry/?format=json&satellite=25544",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"telemetry",
+										""
+									],
+									"query": [
+										{
+											"key": "app_source",
+											"value": "manual",
+											"description": "The submission source for the telemetry frames: manual (a manual upload/entry), network (SatNOGS Network observations), or sids (legacy API submission)",
+											"disabled": true
+										},
+										{
+											"key": "start",
+											"value": null,
+											"description": "Date",
+											"disabled": true
+										},
+										{
+											"key": "end",
+											"value": null,
+											"description": "Date",
+											"disabled": true
+										},
+										{
+											"key": "format",
+											"value": "json",
+											"description": "json, json-ld"
+										},
+										{
+											"key": "observer",
+											"value": null,
+											"description": "(string) name of the observer (submitter) to retrieve telemetry data from",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "A page number within the paginated result set.",
+											"disabled": true
+										},
+										{
+											"key": "sat_id",
+											"value": "XSKZ-5603-1870-9019-3066",
+											"description": "Satellite ID",
+											"disabled": true
+										},
+										{
+											"key": "satellite",
+											"value": "25544",
+											"description": "NORAD ID of a satellite to filter telemetry data for"
+										},
+										{
+											"key": "transmitter",
+											"value": null,
+											"description": "Not currently in use",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "telemetry_create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "version",
+											"value": "",
+											"type": "default"
+										},
+										{
+											"key": "observation_id",
+											"value": "",
+											"type": "default"
+										},
+										{
+											"key": "station_id",
+											"value": "",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/telemetry/?format=json",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"telemetry",
+										""
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": "json",
+											"description": "json, json-ld"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tle",
+					"item": [
+						{
+							"name": "tle_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/tle/?sat_id=XSKZ-5603-1870-9019-3066",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"tle",
+										""
+									],
+									"query": [
+										{
+											"key": "sat_id",
+											"value": "XSKZ-5603-1870-9019-3066",
+											"description": "Satellite ID"
+										},
+										{
+											"key": "norad_cat_id",
+											"value": "25544",
+											"description": "NORAD ID of a satellite to filter telemetry data for",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tle_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/tle/:id/",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"tle",
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "transmitters",
+					"item": [
+						{
+							"name": "transmitters_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/transmitters/?satellite__norad_cat_id=25544",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"transmitters",
+										""
+									],
+									"query": [
+										{
+											"key": "alive",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "format",
+											"value": "json",
+											"description": "Available values : json, json-ld",
+											"disabled": true
+										},
+										{
+											"key": "mode",
+											"value": "FM",
+											"disabled": true
+										},
+										{
+											"key": "sat_id",
+											"value": "XSKZ-5603-1870-9019-3066",
+											"description": "Satellite ID",
+											"disabled": true
+										},
+										{
+											"key": "satellite__norad_cat_id",
+											"value": "25544",
+											"description": "Select a satellite by its NORAD-assigned identifier"
+										},
+										{
+											"key": "service",
+											"value": "Amateur",
+											"description": "Filter by transmitter service: Aeronautical Amateur Broadcasting Earth Exploration Fixed Inter-satellite Maritime Meteorological Mobile Radiolocation Radionavigational Space Operation Space Research Standard Frequency and Time Signal Unknown",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "active",
+											"description": "Filter by transmitter status: active inactive invalid",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "Transmitter",
+											"description": "Filter by transmitter type: Transmitter Transceiver Transponder",
+											"disabled": true
+										},
+										{
+											"key": "uplink_mode",
+											"value": "FM",
+											"disabled": true
+										},
+										{
+											"key": "uuid",
+											"value": "PjfcFc4PZ8M8n3thuyA6x9",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transmitters_create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/transmitters/?format=json",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"transmitters",
+										""
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": "json",
+											"description": "Available values : json, json-ld"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "transmitters_create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{satnogs_db_api_prod}}​/api/transmitters/?format=json",
+											"host": [
+												"{{satnogs_db_api_prod}}​"
+											],
+											"path": [
+												"api",
+												"transmitters",
+												""
+											],
+											"query": [
+												{
+													"key": "format",
+													"value": "json",
+													"description": "Available values : json, json-ld"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\r\n  \"description\": \"string\",\r\n  \"type\": \"Transmitter\",\r\n  \"uplink_low\": 40000000000,\r\n  \"uplink_high\": 40000000000,\r\n  \"uplink_drift\": 99999,\r\n  \"downlink_low\": 40000000000,\r\n  \"downlink_high\": 40000000000,\r\n  \"downlink_drift\": 99999,\r\n  \"invert\": true,\r\n  \"baud\": 0,\r\n  \"status\": \"active\",\r\n  \"updated\": \"2023-02-15T16:12:34.856Z\",\r\n  \"citation\": \"string\",\r\n  \"service\": \"Aeronautical\",\r\n  \"iaru_coordination\": \"IARU Coordinated\",\r\n  \"iaru_coordination_url\": \"string\",\r\n  \"itu_notification\": {\r\n    \"additionalProp1\": \"string\",\r\n    \"additionalProp2\": \"string\",\r\n    \"additionalProp3\": \"string\"\r\n  }\r\n}"
+								}
+							]
+						},
+						{
+							"name": "transmitters_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_db_api_prod}}​/api/transmitters/:uuid/?format=json",
+									"host": [
+										"{{satnogs_db_api_prod}}​"
+									],
+									"path": [
+										"api",
+										"transmitters",
+										":uuid",
+										""
+									],
+									"query": [
+										{
+											"key": "format",
+											"value": "json",
+											"description": "Available values : json, json-ld"
+										}
+									],
+									"variable": [
+										{
+											"key": "uuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": [
+					{
+						"key": "headerPrefix",
+						"value": "Token",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Network v0.0",
+			"item": [
+				{
+					"name": "configuration",
+					"item": [
+						{
+							"name": "configuration_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/configuration/",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"configuration",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "configuration_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/configuration/:id\n",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"configuration",
+										":id\n"
+									],
+									"variable": [
+										{
+											"key": "id\n",
+											"value": "2220"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "jobs",
+					"item": [
+						{
+							"name": "jobs_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/jobs/?start=2023-02-21T09:27:22Z&satellite__norad_cat_id=25544",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"jobs",
+										""
+									],
+									"query": [
+										{
+											"key": "start",
+											"value": "2023-02-21T09:27:22Z"
+										},
+										{
+											"key": "end",
+											"value": "2023-02-21T09:27:22Z",
+											"disabled": true
+										},
+										{
+											"key": "ground_station",
+											"value": "3024",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "7181098",
+											"disabled": true
+										},
+										{
+											"key": "observation_id",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "observer",
+											"value": "56",
+											"disabled": true
+										},
+										{
+											"key": "satellite__norad_cat_id",
+											"value": "25544"
+										},
+										{
+											"key": "status",
+											"value": "56",
+											"disabled": true
+										},
+										{
+											"key": "transmitter_mode",
+											"value": "transmitterMode_example",
+											"disabled": true
+										},
+										{
+											"key": "transmitter_type",
+											"value": "transmitterType_example",
+											"disabled": true
+										},
+										{
+											"key": "transmitter_uuid",
+											"value": "transmitterUuid_example",
+											"disabled": true
+										},
+										{
+											"key": "vetted_status",
+											"value": "56",
+											"description": "deprecated",
+											"disabled": true
+										},
+										{
+											"key": "vetted_user",
+											"value": "56",
+											"description": "deprecated",
+											"disabled": true
+										},
+										{
+											"key": "waterfall_status",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "jobs_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/jobs/:id",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"jobs",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "7181098",
+											"description": "Required"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "observations",
+					"item": [
+						{
+							"name": "observations_create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/observations?start&end&ground_station",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"observations"
+									],
+									"query": [
+										{
+											"key": "start",
+											"value": null
+										},
+										{
+											"key": "end",
+											"value": null,
+											"description": "Required"
+										},
+										{
+											"key": "ground_station",
+											"value": null,
+											"description": "Required"
+										},
+										{
+											"key": "transmitter_uuid",
+											"value": null,
+											"description": "Required",
+											"disabled": true
+										},
+										{
+											"key": "center_frequency",
+											"value": "6",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "observations_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/observations/?start=2023-02-21T09:27:22Z&satellite__norad_cat_id=25544",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"observations",
+										""
+									],
+									"query": [
+										{
+											"key": "start",
+											"value": "2023-02-21T09:27:22Z"
+										},
+										{
+											"key": "end",
+											"value": "2023-02-21T09:27:22Z",
+											"disabled": true
+										},
+										{
+											"key": "ground_station",
+											"value": "3024",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "7181098",
+											"disabled": true
+										},
+										{
+											"key": "observation_id",
+											"value": "7181098",
+											"disabled": true
+										},
+										{
+											"key": "observer",
+											"value": "56",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "satellite__norad_cat_id",
+											"value": "25544"
+										},
+										{
+											"key": "status",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "transmitter_mode",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "transmitter_type",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "transmitter_uuid",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "vetted_status",
+											"value": "56",
+											"description": "deprecated",
+											"disabled": true
+										},
+										{
+											"key": "vetted_user",
+											"value": "56",
+											"description": "deprecated",
+											"disabled": true
+										},
+										{
+											"key": "waterfall_status",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "observations_list",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{satnogs_network_api_prod}}/api/observations/?start=2023-02-21T09:27:22Z&end=2023-02-21T09:27:22Z&satellite__norad_cat_id=25544&waterfall_status=1",
+											"host": [
+												"{{satnogs_network_api_prod}}"
+											],
+											"path": [
+												"api",
+												"observations",
+												""
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "2023-02-21T09:27:22Z"
+												},
+												{
+													"key": "end",
+													"value": "2023-02-21T09:27:22Z"
+												},
+												{
+													"key": "ground_station",
+													"value": "3024",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "7181098",
+													"disabled": true
+												},
+												{
+													"key": "observation_id",
+													"value": "7181098",
+													"disabled": true
+												},
+												{
+													"key": "observer",
+													"value": "56",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "satellite__norad_cat_id",
+													"value": "25544"
+												},
+												{
+													"key": "status",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "transmitter_mode",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "transmitter_type",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "transmitter_uuid",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "vetted_status",
+													"value": "56",
+													"description": "deprecated",
+													"disabled": true
+												},
+												{
+													"key": "vetted_user",
+													"value": "56",
+													"description": "deprecated",
+													"disabled": true
+												},
+												{
+													"key": "waterfall_status",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 7181098,\n        \"start\": \"2023-02-21T09:27:22Z\",\n        \"end\": \"2023-02-21T09:33:40Z\",\n        \"ground_station\": 3024,\n        \"transmitter\": \"Kzcz2938Fn4wzFC8Pj2wQ3\",\n        \"norad_cat_id\": 25544,\n        \"payload\": null,\n        \"waterfall\": null,\n        \"demoddata\": [],\n        \"station_name\": \"Drachten S-band\",\n        \"station_lat\": 53.1094,\n        \"station_lng\": 6.1076,\n        \"station_alt\": 6,\n        \"vetted_status\": \"unknown\",\n        \"vetted_user\": null,\n        \"vetted_datetime\": null,\n        \"archived\": false,\n        \"archive_url\": null,\n        \"client_version\": \"\",\n        \"client_metadata\": \"\",\n        \"status\": \"future\",\n        \"waterfall_status\": \"unknown\",\n        \"waterfall_status_user\": null,\n        \"waterfall_status_datetime\": null,\n        \"rise_azimuth\": 271.0,\n        \"set_azimuth\": 133.0,\n        \"max_altitude\": 37.0,\n        \"transmitter_uuid\": \"Kzcz2938Fn4wzFC8Pj2wQ3\",\n        \"transmitter_description\": \"SpaceX Dragon narrowband telemetry\",\n        \"transmitter_type\": \"Transmitter\",\n        \"transmitter_uplink_low\": null,\n        \"transmitter_uplink_high\": null,\n        \"transmitter_uplink_drift\": null,\n        \"transmitter_downlink_low\": 2216000000,\n        \"transmitter_downlink_high\": null,\n        \"transmitter_downlink_drift\": null,\n        \"transmitter_mode\": \"BPSK\",\n        \"transmitter_invert\": false,\n        \"transmitter_baud\": null,\n        \"transmitter_updated\": \"2023-02-17T09:46:38.336579Z\",\n        \"tle0\": \"0 ISS (ZARYA)\",\n        \"tle1\": \"1 25544U 98067A   23050.58757273  .00017402  00000-0  30944-3 0  9991\",\n        \"tle2\": \"2 25544  51.6393 191.0122 0009615   6.9019  78.7997 15.50215394383557\",\n        \"center_frequency\": null,\n        \"observer\": 837,\n        \"observation_frequency\": 2216000000\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "observations_partial_update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "transmitter_invert",
+											"value": " true",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_uplink_low",
+											"value": " 7",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_type",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_uuid",
+											"value": " transmitter_uuid",
+											"type": "text"
+										},
+										{
+											"key": "vetted_user",
+											"value": " vetted_user",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_downlink_drift",
+											"value": " 7",
+											"type": "text"
+										},
+										{
+											"key": "observation_frequency",
+											"value": " observation_frequency",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_uplink_high",
+											"value": " 9",
+											"type": "text"
+										},
+										{
+											"key": "norad_cat_id",
+											"value": " norad_cat_id",
+											"type": "text"
+										},
+										{
+											"key": "archived",
+											"value": " true",
+											"type": "text"
+										},
+										{
+											"key": "observer",
+											"value": " observer",
+											"type": "text"
+										},
+										{
+											"key": "station_alt",
+											"value": " station_alt",
+											"type": "text"
+										},
+										{
+											"key": "tle1",
+											"value": " tle1",
+											"type": "text"
+										},
+										{
+											"key": "tle2",
+											"value": " tle2",
+											"type": "text"
+										},
+										{
+											"key": "payload",
+											"value": " payload",
+											"type": "text"
+										},
+										{
+											"key": "vetted_status",
+											"value": " vetted_status",
+											"type": "text"
+										},
+										{
+											"key": "tle0",
+											"value": " tle0",
+											"type": "text"
+										},
+										{
+											"key": "center_frequency",
+											"value": " center_frequency",
+											"type": "text"
+										},
+										{
+											"key": "waterfall",
+											"value": " waterfall",
+											"type": "text"
+										},
+										{
+											"key": "station_lng",
+											"value": " station_lng",
+											"type": "text"
+										},
+										{
+											"key": "station_lat",
+											"value": " station_lat",
+											"type": "text"
+										},
+										{
+											"key": "end",
+											"value": " 2000-01-23T04:56:07.000+00:00",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": " 0",
+											"type": "text"
+										},
+										{
+											"key": "ground_station",
+											"value": " 6",
+											"type": "text"
+										},
+										{
+											"key": "client_version",
+											"value": " client_version",
+											"type": "text"
+										},
+										{
+											"key": "max_altitude",
+											"value": " 2.3021358869347655",
+											"type": "text"
+										},
+										{
+											"key": "transmitter",
+											"value": " transmitter",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_baud",
+											"value": " 1.2315135367772556",
+											"type": "text"
+										},
+										{
+											"key": "station_name",
+											"value": " station_name",
+											"type": "text"
+										},
+										{
+											"key": "archive_url",
+											"value": " https://openapi-generator.tech",
+											"type": "text"
+										},
+										{
+											"key": "set_azimuth",
+											"value": " 5.637376656633329",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_downlink_high",
+											"value": " 4",
+											"type": "text"
+										},
+										{
+											"key": "start",
+											"value": " 2000-01-23T04:56:07.000+00:00",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_uplink_drift",
+											"value": " 3",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_downlink_low",
+											"value": " 2",
+											"type": "text"
+										},
+										{
+											"key": "rise_azimuth",
+											"value": " 5.962133916683182",
+											"type": "text"
+										},
+										{
+											"key": "waterfall_status_user",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_updated",
+											"value": " transmitter_updated",
+											"type": "text"
+										},
+										{
+											"key": "waterfall_status",
+											"value": " waterfall_status",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_description",
+											"value": " transmitter_description",
+											"type": "text"
+										},
+										{
+											"key": "transmitter_mode",
+											"value": " transmitter_mode",
+											"type": "text"
+										},
+										{
+											"key": "vetted_datetime",
+											"value": " vetted_datetime",
+											"type": "text"
+										},
+										{
+											"key": "waterfall_status_datetime",
+											"value": " 2000-01-23T04:56:07.000+00:00",
+											"type": "text"
+										},
+										{
+											"key": "demoddata",
+											"value": " []",
+											"type": "text"
+										},
+										{
+											"key": "client_metadata",
+											"value": " client_metadata",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": " status",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/observations/:id/",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"observations",
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Required"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "observations_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/observations/:id/",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"observations",
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Required"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "observations_update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "0",
+											"description": "Required",
+											"type": "text"
+										},
+										{
+											"key": "payload",
+											"value": "https://openapi-generator.tech",
+											"type": "text"
+										},
+										{
+											"key": "waterfall",
+											"value": "https://openapi-generator.tech",
+											"type": "text"
+										},
+										{
+											"key": "client_version",
+											"value": "1.8.1+28.g5f23fe0",
+											"type": "text"
+										},
+										{
+											"key": "client_metadata",
+											"value": "client_metadata",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/observations/:id/",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"observations",
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Required"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "station",
+					"item": [
+						{
+							"name": "station_register_create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/station/register",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"station",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "stations",
+					"item": [
+						{
+							"name": "stations_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/stations/?id=2220",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"stations",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2220"
+										},
+										{
+											"key": "name",
+											"value": "Mogielnica - L-band",
+											"disabled": true
+										},
+										{
+											"key": "client_version",
+											"value": "1.8.1+28.g5f23fe0",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "Online",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "stations_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/stations/:id",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"stations",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2220",
+											"description": "Required"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "transmitters",
+					"item": [
+						{
+							"name": "transmitters_list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/transmitters/?page=1",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"transmitters",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "uuid",
+											"value": "2DVTGfBB2vG5tqxRaX8thZ",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transmitters_retrieve",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{satnogs_network_api_prod}}/api/transmitters/:transmitter_uuid",
+									"host": [
+										"{{satnogs_network_api_prod}}"
+									],
+									"path": [
+										"api",
+										"transmitters",
+										":transmitter_uuid"
+									],
+									"variable": [
+										{
+											"key": "transmitter_uuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": [
+					{
+						"key": "headerPrefix",
+						"value": "",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "satnogs_db_api_prod",
+			"value": "https://db.satnogs.org",
+			"type": "default"
+		},
+		{
+			"key": "satnogs_network_api_prod",
+			"value": "https://network.satnogs.org",
+			"type": "default"
+		}
+	]
+}
