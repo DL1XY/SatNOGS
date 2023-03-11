@@ -15,3 +15,7 @@ You should create an Environment in Postman to store your API keys and add the A
 Authorization type is OAuth 2.0 and the Header Prefix should be Token instead of Bearer.
 
 As I don't run a SatNOGS station, some requests are not tested yet
+
+## notebooks
+
+Jupyter notebooks to play around with the SatNOGS APIs
