@@ -1,6 +1,6 @@
 
 # SatNOGS 
-SatNOGS related stuff 
+[SatNOGS](https://satnogs.org) related stuff 
 
 ## postman
 Contains Postman collection for DB and network requests, see
